@@ -1,0 +1,45 @@
+<app-nav>
+</app-nav>
+
+<div style='display:inline-block'>
+    <ag-grid-angular style="" class="ag-theme-material" [rowData]="rowData" [columnDefs]="columnDefs">
+    </ag-grid-angular>
+</div>
+
+<!--<div style="width: 70%; margin-left:10%;">
+    <sky-ag-grid-wrapper>
+        <ag-grid-angular [gridOptions]="gridOptions" [rowData]="gridData">
+        </ag-grid-angular>
+    </sky-ag-grid-wrapper>
+</div>-->
+
+<!--<h3>Grid with async column and templated column</h3>
+<sky-grid fit="scroll" [data]="data" (sortFieldChange)="onSortChangeForGrid($event)">
+    <sky-grid-column field="name" heading="Name">
+    </sky-grid-column>
+    <sky-grid-column field="email" heading="Email">
+    </sky-grid-column>
+    <sky-grid-column field="amount" [heading]="asyncHeading | async">
+    </sky-grid-column>
+    <sky-grid-column field="status" heading="Status" [template]="customColumnTemplate">
+    </sky-grid-column>
+</sky-grid>
+
+<ng-template let-value="value" #customColumnTemplate>
+    <div [ngClass]="{ 'sky-text-danger' : value === 'Past due' }">
+        {{ value }}
+    </div>
+</ng-template>
+
+<h3>Grid with multiselect enabled</h3>
+<div id="screenshot-grid-multiselect">
+    <sky-grid fit="scroll" [data]="dataForMultiselect" [enableMultiselect]="true" [messageStream]="gridController" [multiselectRowId]="'myRowId'" (multiselectSelectionChange)="onMultiselectSelectionChange($event)" (sortFieldChange)="onSortChangeForMultiselectGrid($event)">
+        <sky-grid-column field="name" heading="Name"></sky-grid-column>
+        <sky-grid-column field="email" heading="Email"></sky-grid-column>
+        <sky-grid-column field="amount" heading="Amount"></sky-grid-column>
+        <sky-grid-column field="status" heading="Status"></sky-grid-column>
+    </sky-grid>
+
+    <p>Selected rows:</p>
+    <p>{{ selectedRows }}</p>
+</div>-->
