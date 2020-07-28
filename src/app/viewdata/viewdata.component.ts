@@ -9,15 +9,13 @@ import { DataService} from '../services/data.service';
 })
 export class ViewdataComponent implements OnInit {
 
-  constructor(private userservice : DataService){}
-  
-  rowData = '' ;
+  public rowData = '' ;
 
-  columnDefs = [
-        {headerName: 'First Name', field: 'firstname',sortable: true, filter: true },
-        {headerName: 'Last Name', field: 'lastname',sortable: true, filter: true },
-        {headerName: 'Contact', field: 'contact',sortable: true, filter: true },
-        {headerName: 'Email', field: 'email',sortable: false, filter: true },
+  public columnDefs = [
+        {headerName: 'First Name', field: 'firstname', sortable: true, filter: true },
+        {headerName: 'Last Name', field: 'lastname', sortable: true, filter: true },
+        {headerName: 'Contact', field: 'contact', sortable: true, filter: true },
+        {headerName: 'Email', field: 'email', sortable: false, filter: true },
         {headerName: 'DateOfBirth', field: 'dob' },
         {headerName: 'Address', field: 'address'}
     ];
@@ -28,8 +26,9 @@ export class ViewdataComponent implements OnInit {
     //     { firstname: 'C', lastname: 'C', contact: '9898989898', email: 'c@gmail.com', dob: '1998-12-26', address: 'Test' }
     // ];
 
+  constructor(private userservice: DataService) { }
+
   public ngOnInit(): void {
     this.rowData = this.userservice.getUser();
   }
-
 }

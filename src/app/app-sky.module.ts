@@ -15,6 +15,9 @@ import { SkySearchModule } from '@skyux/lookup';
 import { SkyModalModule } from '@skyux/modals';
 import { SkyAppLinkModule } from '@skyux/router';
 
+import { SkyDataEntryGridCMComponent } from './data-entry-grid-demo/data-entry-grid-context-menu.component';
+import { SkyDataEntryGridEditModalComponent } from './data-entry-grid-demo/data-entry-grid-edit-modal.component';
+
 @NgModule({
   exports: [
     SkyAvatarModule,
@@ -27,7 +30,9 @@ import { SkyAppLinkModule } from '@skyux/router';
     SkyToolbarModule,
     SkyDropdownModule,
     SkyModalModule,
-    SkySearchModule
-  ]
+    SkySearchModule,
+  ],
+  entryComponents: [SkyDataEntryGridCMComponent, SkyDataEntryGridEditModalComponent ],
+  providers:[SkyDataEntryGridCMComponent, SkyDataEntryGridEditModalComponent ],
 })
 export class AppSkyModule { }

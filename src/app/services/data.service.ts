@@ -9,30 +9,30 @@ import {User} from '../model/user';
 export class DataService {
 
     // service to save the data to local storage
-    addUser(user:User) {
-        var objData = [] ;
-        var dataLength = 0 ;
+    public addUser( user: User ) {
+        let objData = [] ;
+        let dataLength = 0 ;
         // alert(JSON.stringify(user));
-        var data = localStorage.getItem("gridAssignment") ;
+        let data = localStorage.getItem('gridAssignment') ;
 
         // alert(data);
-        if(data != null){
+        if ( data !== undefined ) {
             objData = JSON.parse(data);
             dataLength = objData.length ;
             // alert(dataLength) ;
         }
-        
+
         objData[dataLength] = user ;
         // alert(JSON.stringify(objData));
-        var stringData = JSON.stringify(objData) ;
-        localStorage.setItem("gridAssignment", stringData);
+        let stringData = JSON.stringify(objData) ;
+        localStorage.setItem('gridAssignment', stringData);
         return true;
     }
 
     // service to get the data from the local storage
-    getUser(){
-        var data = localStorage.getItem("gridAssignment") ;
-        var objData = JSON.parse(data);
+    public getUser() {
+        let data = localStorage.getItem('gridAssignment') ;
+        let objData = JSON.parse(data);
 
         return objData ;
     }

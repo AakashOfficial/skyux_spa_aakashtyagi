@@ -21,21 +21,20 @@ import { DataService} from '../services/data.service';
 @Component({
   selector: 'sky-data-entry-grid-demo',
   templateUrl: './data-entry-grid-demo.component.html',
+  styleUrls: ["data-entry-grid-demo.component.scss"]
 })
 export class SkyDataEntryGridDemoComponent implements OnInit {
 
   public gridData: SkyAgGridDemoRow [] ;
   public columnDefs = [
     { field: 'selected', type: SkyCellType.RowSelector },
-    { colId: 'context', headerName: '', maxWidth: 50, sortable: false,
-      cellRendererFramework: SkyDataEntryGridCMComponent },
-    {headerName: 'First Name', field: 'firstname', sortable: true, filter: true },
-    {headerName: 'Last Name', field: 'lastname',sortable: true, filter: true },
-    {headerName: 'Contact', field: 'contact',sortable: true, filter: true, 
-      type: SkyCellType.Number, maxWidth: 60},
-    {headerName: 'Email', field: 'email',sortable: false, filter: true },
-    {headerName: 'DateOfBirth', field: 'dob', type: SkyCellType.Date},
-    {headerName: 'Address', field: 'address'}       
+    { colId: 'context', headerName: '', maxWidth: 50, sortable: false, cellRendererFramework: SkyDataEntryGridCMComponent },
+    { headerName: 'First Name', field: 'firstname', sortable: true, filter: true },
+    { headerName: 'Last Name', field: 'lastname', sortable: true, filter: true },
+    { headerName: 'Contact', field: 'contact', sortable: true, filter: true, type: SkyCellType.Number, maxWidth: 60 },
+    { headerName: 'Email', field: 'email', sortable: false, filter: true },
+    { headerName: 'DateOfBirth', field: 'dob', type: SkyCellType.Date },
+    { headerName: 'Address', field: 'address' },
   ];
 
   public gridApi: GridApi;
@@ -45,14 +44,20 @@ export class SkyDataEntryGridDemoComponent implements OnInit {
   constructor(
     private agGridService: SkyAgGridService,
     private modalService: SkyModalService,
-    private userservice : DataService
+    private userservice: DataService
   ) { }
 
   public ngOnInit(): void {
     this.gridData = this.userservice.getUser();
     this.gridOptions = {
       columnDefs: this.columnDefs,
-      onGridReady: gridReadyEvent => this.onGridReady(gridReadyEvent)
+      onGridReady: gridReadyEvent => this.onGridReady(gridReadyEvent),
+      // rowStyle: { background: 'black' },
+      // defaultColDef: {
+      //   flex: 1,
+      //   minWidth: 150,
+      //   resizable: true,
+      // },
     };
     this.gridOptions = this.agGridService.getGridOptions({ gridOptions: this.gridOptions });
   }

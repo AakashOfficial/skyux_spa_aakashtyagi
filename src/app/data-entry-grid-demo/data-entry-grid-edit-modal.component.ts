@@ -29,16 +29,13 @@ export class SkyDataEntryGridEditModalComponent implements OnInit {
   public ngOnInit(): void {
     this.gridData = this.context.gridData;
 
-    this.columnDefs = [    
-      {headerName: 'First Name', field: 'firstname' },
-      {headerName: 'Last Name', field: 'lastname' },
-
-      {headerName: 'Contact', field: 'contact',sortable: true, filter: true, 
-      type: SkyCellType.Number, maxWidth: 200, editable: true},
-    {headerName: 'Email', field: 'email',sortable: false, filter: true , editable: true},
-    {headerName: 'DateOfBirth', field: 'dob', type: SkyCellType.Date},
-    {headerName: 'Address', field: 'address', editable: true}  ,
-      
+    this.columnDefs = [
+      { headerName: 'First Name', field: 'firstname' },
+      { headerName: 'Last Name', field: 'lastname' },
+      { headerName: 'Contact', field: 'contact', sortable: true, filter: true, type: SkyCellType.Number, maxWidth: 200, editable: true },
+      { headerName: 'Email', field: 'email', sortable: false, filter: true , editable: true },
+      { headerName: 'DateOfBirth', field: 'dob', type: SkyCellType.Date },
+      { headerName: 'Address', field: 'address', editable: true }
     ];
 
     this.gridOptions = {
