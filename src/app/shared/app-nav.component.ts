@@ -24,10 +24,6 @@ export class AppNavComponent {
     {
       titleKey: 'add_data',
       path: '/adddata'
-    },
-    {
-      titleKey: 'view_saved_data',
-      path: '/viewdata'
     }
   ];
 }

@@ -22,9 +22,5 @@
     "add_data": {
         "message": "adddata",
         "_description": "Add the Data"
-    },
-    "view_saved_data": {
-        "message": "viewdata",
-        "_description": "Show the Saved Data"
     }
 }

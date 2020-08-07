@@ -30,9 +30,9 @@ import { SkyDataEntryGridEditModalComponent } from './data-entry-grid-demo/data-
     SkyToolbarModule,
     SkyDropdownModule,
     SkyModalModule,
-    SkySearchModule,
+    SkySearchModule
   ],
-  entryComponents: [SkyDataEntryGridCMComponent, SkyDataEntryGridEditModalComponent ],
-  providers:[SkyDataEntryGridCMComponent, SkyDataEntryGridEditModalComponent ],
+  entryComponents: [ SkyDataEntryGridCMComponent, SkyDataEntryGridEditModalComponent ],
+  providers: [ SkyDataEntryGridCMComponent, SkyDataEntryGridEditModalComponent ]
 })
 export class AppSkyModule { }

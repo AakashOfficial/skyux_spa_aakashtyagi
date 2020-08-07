@@ -22,7 +22,8 @@ export class SkyDataEntryGridCMComponent implements ICellRendererAngularComp {
     return false;
   }
 
-  public actionClicked(action: string): void {
+  public actionClicked(action: string) {
     alert(`${action} clicked for ${this.name}`);
+    return action;
   }
 }

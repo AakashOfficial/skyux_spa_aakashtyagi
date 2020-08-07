@@ -21,7 +21,7 @@ import { DataService} from '../services/data.service';
 @Component({
   selector: 'sky-data-entry-grid-demo',
   templateUrl: './data-entry-grid-demo.component.html',
-  styleUrls: ["data-entry-grid-demo.component.scss"]
+  styleUrls: ['data-entry-grid-demo.component.scss']
 })
 export class SkyDataEntryGridDemoComponent implements OnInit {
 
@@ -34,7 +34,7 @@ export class SkyDataEntryGridDemoComponent implements OnInit {
     { headerName: 'Contact', field: 'contact', sortable: true, filter: true, type: SkyCellType.Number, maxWidth: 60 },
     { headerName: 'Email', field: 'email', sortable: false, filter: true },
     { headerName: 'DateOfBirth', field: 'dob', type: SkyCellType.Date },
-    { headerName: 'Address', field: 'address' },
+    { headerName: 'Address', field: 'address' }
   ];
 
   public gridApi: GridApi;
@@ -51,7 +51,7 @@ export class SkyDataEntryGridDemoComponent implements OnInit {
     this.gridData = this.userservice.getUser();
     this.gridOptions = {
       columnDefs: this.columnDefs,
-      onGridReady: gridReadyEvent => this.onGridReady(gridReadyEvent),
+      onGridReady: gridReadyEvent => this.onGridReady(gridReadyEvent)
       // rowStyle: { background: 'black' },
       // defaultColDef: {
       //   flex: 1,

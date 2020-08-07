@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { User } from '../model/user';
 import { DataService } from '../services/data.service';
@@ -8,10 +8,13 @@ import { DataService } from '../services/data.service';
   templateUrl: './adddata.component.html',
   styleUrls: ['./adddata.component.scss']
 })
-export class AdddataComponent {
-  public usr = new User() ;
+export class AdddataComponent implements OnInit  {
+  public usr = new User();
 
-  public form = new FormGroup({
+  public form: FormGroup;
+
+    constructor( private userservice: DataService ) {
+      this.form = new FormGroup({
             firstname : new FormControl('', Validators.required),
             lastname : new FormControl('', Validators.required),
             email : new FormControl('', [Validators.required, Validators.email]),
@@ -19,8 +22,9 @@ export class AdddataComponent {
             dob : new FormControl('', [Validators.required]),
             address: new FormControl('', Validators.required)
         }) ;
+    }
 
-    constructor( private userservice: DataService ) {}
+    public ngOnInit(): void { }
 
     get firstname() {
       return this.form.get('firstname');
@@ -55,17 +59,33 @@ export class AdddataComponent {
           this.usr.mobilenumber = this.form.get('contact').value;
           this.usr.dateofbirth = this.form.get('dob').value;
           this.usr.address = this.form.get('address').value;
+          // let firstname = this.form.get('firstname').value;
+          // let lastname = this.form.get('lastname').value ;
+          // let email = this.form.get('email').value;
+          // let mobilenumber = this.form.get('contact').value;
+          // let dateofbirth = this.form.get('dob').value;
+          // let address = this.form.get('address').value;
 
+          // this.usr = new User(firstname, lastname, email, address, dateofbirth, mobilenumber);
           // call the service
-          let result = this.userservice.addUser(this.usr);
+          let result = this.saveData(this.usr);
 
           if (result) {
             alert('Saved');
+            return true;
           } else {
             alert('Not Saved');
+            return false;
           }
         } else {
           alert('Fill all Field of Form') ;
+          return false;
         }
+    }
+
+    public saveData(user: User) {
+          // call the service
+          let result = this.userservice.addUser(this.usr);
+          return result;
     }
 }
