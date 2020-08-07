@@ -16,6 +16,14 @@ export class AppNavComponent {
     {
       titleKey: 'app_nav_about',
       path: '/about'
+    },
+    {
+      titleKey: 'Datagrid',
+      path: '/data-entry-grid-demo'
+    },
+    {
+      titleKey: 'add_data',
+      path: '/adddata'
     }
   ];
 }

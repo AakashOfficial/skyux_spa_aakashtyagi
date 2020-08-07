@@ -1,0 +1,51 @@
+<app-nav>
+</app-nav>
+
+<div style='margin-left:10%;margin-right:10%;margin-top:40px;'>
+    <form style='width:80%' (ngSubmit)="Save()" [formGroup]="form" id='demoform'>
+        <div>
+            <div class="sky-form-group" style="max-width: 40%;">
+                <label for="firstname" class="sky-control-label sky-control-label-required"> First name </label>
+                <input class="sky-form-control" id="firstname" type="text" aria-required="true" formControlName="firstname" required>
+                <div *ngIf="firstname.touched && firstname.invalid" class="alert alert-danger"> First Name is Required </div>
+            </div>
+
+            <div class="sky-form-group" style="max-width: 40%;">
+                <label for="lastname" class="sky-control-label sky-control-label-required"> Last name </label>
+                <input class="sky-form-control" id="lastname" type="text" aria-required="true" formControlName="lastname" required>
+                <div *ngIf="lastname.touched && lastname.invalid" class="alert alert-danger"> Last Name is Required </div>
+            </div>
+
+            <div class="sky-form-group" style="max-width: 40%;">
+                <label for="contact" class="sky-control-label sky-control-label-required"> Contact No. </label>
+                <input class="sky-form-control" id="contact" type="number" aria-required="true" formControlName="contact" required>
+                <div *ngIf="contact.touched && contact.invalid" class="alert alert-danger"> Contact Number is Required </div>
+            </div>
+
+            <div class="sky-form-group" style="max-width: 40%;">
+                <label for="email" class="sky-control-label sky-control-label-required"> Email </label>
+                <input class="sky-form-control" id="email" type="email" aria-required="true" formControlName="email" required>
+                <div *ngIf="email.touched && email.invalid" class="alert alert-danger"> Email is Required </div>
+            </div>
+
+            <div class="sky-form-group" style="max-width: 40%;">
+                <label for="dob" class="sky-control-label sky-control-label-required"> Date Of Birth </label>
+                <input class="sky-form-control" id="dob" type="date" aria-required="true" formControlName="dob" required>
+                <div *ngIf="dob.touched && dob.invalid" class="alert alert-danger"> Date Of Birth is Required </div>
+            </div>
+
+            <div class="sky-form-group" style="max-width: 40%;">
+                <label for="address" class="sky-control-label sky-control-label-required"> Address </label>
+                <input class="sky-form-control" id="address" type="text" aria-required="true" formControlName="address" required>
+                <div *ngIf="address.touched && address.invalid" class="alert alert-danger"> Address is Required </div>
+            </div>
+
+            <div class="sky-form-group" style="max-width: 40%;">
+                <!--<button type="button" class="sky-btn sky-btn-primary">Submit</button>-->
+            </div>
+        </div>
+    </form>
+    <div class="sky-form-group" style="max-width: 40%;">
+        <button type="submit" form="demoform" class="sky-btn sky-btn-primary" value="Submit">Submit</button>
+    </div>
+</div>
