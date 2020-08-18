@@ -16,6 +16,14 @@ export class AppNavComponent {
     {
       titleKey: 'app_nav_about',
       path: '/about'
+    },
+    {
+      titleKey: 'All Movie',
+      path: '/allmovies'
+    },
+    {
+      titleKey: 'Top Ten Movie',
+      path: '/toptenmovie'
     }
   ];
 }

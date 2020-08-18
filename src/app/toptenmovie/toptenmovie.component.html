@@ -1,0 +1,30 @@
+<app-nav></app-nav>
+
+<button aria-haspopup="dialog" class="sky-btn sky-btn-default sky-margin-inline-default" type="button" (click)="saveDemoData()"> Save Demo Data </button>
+
+<button aria-haspopup="dialog" class="sky-btn sky-btn-default sky-margin-inline-default" type="button" (click)="removeAllData()"> Remove All Data </button>
+
+<table class="table table-striped">
+    <thead style="background: skyblue;">
+        <tr>
+            <th>ID</th>
+            <th style="text-align: center;">Name</th>
+            <th>Director</th>
+            <th>Actor</th>
+            <th>Type</th>
+            <th>Release Data</th>
+            <th>Rating</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor='let movie of movieData'>
+            <td>{{movie.movieId}}</td>
+            <td><b>{{movie.movieName}}</b></td>
+            <td>{{movie.movieDirector}}</td>
+            <td>{{movie.movieActor}}</td>
+            <td>{{movie.movieType}}</td>
+            <td>{{movie.movieReleased}}</td>
+            <td>{{movie.movieRating}}</td>
+        </tr>
+    </tbody>
+</table>
