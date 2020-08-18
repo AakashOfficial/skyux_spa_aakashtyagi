@@ -53,7 +53,7 @@ export class DataService {
         if(data !== undefined && data != null){
             let objData = JSON.parse(data);
 
-            objData.sort((x:Movie,y:Movie) => {return x.movieRating - y.movieRating;});
+            objData.sort((x,y) => {return x.movieRating - y.movieRating;});
             return objData.slice(0, 10);
         }else{
             return null;
@@ -75,12 +75,37 @@ export class DataService {
         return true;
     }
 
-    public removeData(){
-
+    public removeData(movieName: String){
+        let data = localStorage.getItem('movieData') ;
+        let index = -1 ;
+        if ( data !== undefined && data != null ) {
+            let objData = JSON.parse(data);
+            for(var i = 0; i < objData.length; i++) {
+                if(objData[i].movieName == movieName) {
+                    index = i;
+                }
+            }  
+        }
+        
+        if(index >= 0){
+            data = localStorage.getItem('movieData') ;
+            let objData = JSON.parse(data);
+            objData.splice(index,1);
+            let stringData = JSON.stringify(objData) ;
+            localStorage.setItem('movieData', stringData);
+            return true;
+        }
+        return false;
     }
 
     public removeAllData(){
         localStorage.removeItem('movieData');
+    }
+
+    public editData(movieData: Movie[]){
+        let stringData = JSON.stringify(movieData) ;
+        localStorage.setItem('movieData', stringData);
+        return true;
     }
 
     public saveDemoData(){

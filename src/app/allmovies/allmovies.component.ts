@@ -88,13 +88,20 @@ export class AllmoviesComponent implements OnInit {
             alert('Edits canceled!');
         } else {
             this.gridData = result.data;
+            let output = this.editData(result.data);
             this.gridApi.refreshCells();
-            alert('Saving data!');
+
+            alert(output + ' Saving data!');
         }
         });
     }
 
-     public searchApplied(searchText: string): void {
+    public editData(movieData: Movie[]){
+        let result = this.userservice.editData(movieData);
+        return result;
+    }
+
+    public searchApplied(searchText: string): void {
         this.searchText = searchText;
         this.gridApi.setQuickFilter(searchText);
     }
