@@ -30,12 +30,15 @@ export class GridEditModalComponent implements OnInit {
   public ngOnInit(): void {
     this.gridData = this.context.gridData;
 
-    this.columnDefs = [      
+    this.columnDefs = [
       { headerName: 'Movie Name', field: 'movieName', sortable: true, filter: true },
-      { headerName: 'Movie Director', field: 'movieDirector', sortable: true, filter: true, type: SkyCellType.Text, maxWidth: 100 , editable: true},
-      { headerName: 'Movie Actor', field: 'movieActor', sortable: true, filter: true, type: SkyCellType.Text, maxWidth: 100 , editable: true},
+      { headerName: 'Movie Director', field: 'movieDirector', sortable: true, filter: true,
+      type: SkyCellType.Text, maxWidth: 100 , editable: true},
+      { headerName: 'Movie Actor', field: 'movieActor', sortable: true, filter: true,
+      type: SkyCellType.Text, maxWidth: 100 , editable: true},
       { headerName: 'Movie Type', field: 'movieType', sortable: false, filter: true , editable: true},
-      { headerName: 'Movie Released Year', field: 'movieReleased', type: SkyCellType.Number, sortable: false, filter: true , editable: true},
+      { headerName: 'Movie Released Year', field: 'movieReleased', type: SkyCellType.Number,
+      sortable: false, filter: true , editable: true},
       { headerName: 'Movie Rating', field: 'movieRating', type: SkyCellType.Number, sortable: false, filter: true, editable: true }
     ];
 

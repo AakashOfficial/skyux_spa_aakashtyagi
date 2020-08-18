@@ -9,31 +9,31 @@ import { Movie } from '../model/movie';
 })
 export class TopTenMovieComponent implements OnInit {
     public movieData: Movie[] ;
-    constructor(
+    constructor (
         private userservice: DataService
     ) { }
 
-     public ngOnInit(): void {
+     public ngOnInit (): void {
         this.getTopTenMovie();
      }
 
-     public ngOnChange()  {    
+     public ngOnChange () {
         this.getTopTenMovie();
      }
 
-     public getTopTenMovie(){
+     public getTopTenMovie () {
          let movieData = this.userservice.getTopTenMovie();
-         if( movieData != null){
+         if ( movieData !== undefined && movieData != null ) {
              this.movieData = movieData;
             // alert(JSON.stringify(movieData));
          }
      }
 
-     public saveDemoData(){
+     public saveDemoData () {
          this.userservice.saveDemoData();
      }
 
-     public removeAllData(){
+     public removeAllData () {
         this.userservice.removeAllData();
      }
 }

@@ -54,13 +54,13 @@ export class AllmoviesComponent implements OnInit {
         this.gridOptions = this.agGridService.getGridOptions({ gridOptions: this.gridOptions });
     }
 
-     public ngOnChange()  {    
+     public ngOnChange ()  {
 
      }
 
-     public getMovies(){
+     public getMovies () {
          let movieData = this.userservice.getMovies();
-         if( movieData != null){
+         if ( movieData != null) {
              this.gridData = movieData;
          }
      }
@@ -91,12 +91,12 @@ export class AllmoviesComponent implements OnInit {
             let output = this.editData(result.data);
             this.gridApi.refreshCells();
 
-            alert(output + ' Saving data!');
+            alert('Saving data! ' + output);
         }
         });
     }
 
-    public editData(movieData: Movie[]){
+    public editData (movieData: Movie[]) {
         let result = this.userservice.editData(movieData);
         return result;
     }

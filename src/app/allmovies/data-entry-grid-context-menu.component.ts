@@ -28,8 +28,8 @@ export class GridContextMenuComponent implements ICellRendererAngularComp {
     alert(`${action} clicked for ${this.movieName}`);
     let dataservice = new DataService();
     let result = dataservice.removeData(this.movieName);
-    if(result){
-      alert("Deleted");
+    if (result) {
+      alert('Deleted');
     }
   }
 }
