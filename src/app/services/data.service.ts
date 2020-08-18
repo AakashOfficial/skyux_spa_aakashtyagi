@@ -53,7 +53,11 @@ export class DataService {
         if(data !== undefined && data != null){
             let objData = JSON.parse(data);
 
-            objData.sort((x,y) => {return x.movieRating - y.movieRating;});
+            objData.sort((x: Movie,y: Movie) => {return y.movieRating - x.movieRating;});
+            // objData.sort(function(obj1: Movie, obj2: Movie) {
+            //     return obj2.movieRating - obj1.movieRating;
+            // });
+
             return objData.slice(0, 10);
         }else{
             return null;
