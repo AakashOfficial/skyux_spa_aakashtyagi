@@ -14,6 +14,7 @@ export class DataService {
                 if ( this.getValidMovie(movie.movieName) ) {
                     let objMovieData = [] ;
                     let dataLength = 0 ;
+                    let movieID = 1 ;
 
                     let data = localStorage.getItem('movieData') ;
 
@@ -21,8 +22,9 @@ export class DataService {
                     if ( data !== undefined && data != null) {
                         objMovieData = JSON.parse(data);
                         dataLength = objMovieData.length ;
+                        movieID = objMovieData[dataLength-1].movieId + 1;
                     }
-                    movie.movieId = dataLength + 1;
+                    movie.movieId = movieID;
                     objMovieData[dataLength] = movie ;
 
                      // alert(JSON.stringify(objData));
@@ -35,6 +37,7 @@ export class DataService {
                     return false;
                 }
         } else {
+            alert('Fill the Required Fields');
             return false;
         }
     }

@@ -14,7 +14,7 @@ import { SkyAgGridModule } from '@skyux/ag-grid';
 import { SkyDropdownModule } from '@skyux/popovers';
 import { SkyToolbarModule } from '@skyux/layout';
 import { SkySearchModule } from '@skyux/lookup';
-import { SkyModalModule } from '@skyux/modals';
+import { SkyModalModule, SkyConfirmModule } from '@skyux/modals';
 import { SkyListModule, SkyListToolbarModule, SkyListPagingModule } from '@skyux/list-builder';
 import { SkyListViewGridModule } from '@skyux/list-builder-view-grids';
 
@@ -43,7 +43,8 @@ import { GridEditModalComponent } from './allmovies/data-entry-grid-edit-modal.c
     SkyListModule,
     SkyListToolbarModule,
     SkyListViewGridModule,
-    SkyListPagingModule
+    SkyListPagingModule,
+    SkyConfirmModule
   ],
   entryComponents: [ GridContextMenuComponent, GridEditModalComponent ],
   providers: [ GridContextMenuComponent, GridEditModalComponent ]

@@ -35,6 +35,8 @@ export class AllmoviesComponent implements OnInit {
 
     public movieData: Movie[] ;
 
+    mySubscription: any;
+
     public gridApi: GridApi;
     public gridOptions: GridOptions;
     public searchText: string;
@@ -58,7 +60,8 @@ export class AllmoviesComponent implements OnInit {
     }
 
      public ngOnChange ()  {
-
+         this.getMovies();
+         this.gridApi.refreshCells();
      }
 
      public getMovies () {
@@ -123,16 +126,28 @@ export class AllmoviesComponent implements OnInit {
 
         modalInstance.closed.subscribe((result: SkyModalCloseArgs) => {
         if (result.reason === 'cancel' || result.reason === 'close') {
-            alert('Edits canceled!');
+            alert('Save canceled!');
         } else {
-            this.gridData = result.data;
+            // this.gridData = result.data;
             // let output = this.editData(result.data);
+            movieModel.movieActor = result.data[0].movieActor;
+            movieModel.movieDirector = result.data[0].movieDirector;
+            movieModel.movieName = result.data[0].movieName;
+            movieModel.movieRating = result.data[0].movieRating;
+            movieModel.movieReleased = result.data[0].movieReleased;
+            movieModel.movieType = result.data[0].movieType;
+            let out = this.userservice.addMovie(movieModel);
+            if(out){
+                alert('Movie Added');
+            }
+            this.getMovies();
             this.gridApi.refreshCells();
-            alert(JSON.stringify(result.data));
+            // alert(JSON.stringify(result.data));
 
-            alert(result.data[0].movieName + ' <br/>' + result.data[0].movieDirector + ' <br/>' +
-            ' <br/>' + result.data[0].movieActor + ' <br/>' + result.data[0].movieRating +
-            ' <br/>' + result.data[0].movieReleased + ' <br/>' + result.data[0].movieType);
+            // alert(result.data[0].movieName + ' <br/>' + result.data[0].movieDirector + ' <br/>' +
+            // ' <br/>' + result.data[0].movieActor + ' <br/>' + result.data[0].movieRating +
+            // ' <br/>' + result.data[0].movieReleased + ' <br/>' + result.data[0].movieType);
+            this.gridApi.refreshCells();
         }
         });
     }
