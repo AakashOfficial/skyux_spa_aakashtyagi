@@ -16,6 +16,7 @@ import { GridEditModalContext } from './data-entry-grid-edit-modal-context';
   templateUrl: './data-entry-grid-edit-model.component.html'
 })
 export class GridEditModalComponent implements OnInit {
+  public newEdit = false;
   public columnDefs: ColDef[];
   public gridApi: GridApi;
   public gridData: Movie[];
@@ -29,9 +30,13 @@ export class GridEditModalComponent implements OnInit {
 
   public ngOnInit(): void {
     this.gridData = this.context.gridData;
+    // alert(this.context.gridData.length);
+    if(this.context.gridData.length == 1){
+      this.newEdit = true;
+    }
 
     this.columnDefs = [
-      { headerName: 'Movie Name', field: 'movieName', sortable: true, filter: true },
+      { headerName: 'Movie Name', field: 'movieName', sortable: true, filter: true, editable: this.newEdit },
       { headerName: 'Movie Director', field: 'movieDirector', sortable: true, filter: true,
       type: SkyCellType.Text, maxWidth: 100 , editable: true},
       { headerName: 'Movie Actor', field: 'movieActor', sortable: true, filter: true,

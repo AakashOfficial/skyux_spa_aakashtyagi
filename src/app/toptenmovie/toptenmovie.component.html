@@ -4,6 +4,23 @@
 
 <button aria-haspopup="dialog" class="sky-btn sky-btn-default sky-margin-inline-default" type="button" (click)="removeAllData()"> Remove All Data </button>
 
+<sky-list [data]="items">
+    <sky-list-toolbar></sky-list-toolbar>
+
+    <sky-list-view-grid fit="scroll">
+        <sky-grid-column field="movieId" heading="Movie ID"></sky-grid-column>
+        <sky-grid-column field="movieName" heading="Movie Name"></sky-grid-column>
+        <sky-grid-column field="movieDirector" heading="Director"></sky-grid-column>
+        <sky-grid-column field="movieActor" heading="Actor"></sky-grid-column>
+        <sky-grid-column field="movieType" heading="Type"></sky-grid-column>
+        <sky-grid-column field="movieReleased" heading="Released"></sky-grid-column>
+        <sky-grid-column field="movieRating" heading="Rating"></sky-grid-column>
+    </sky-list-view-grid>
+
+    <sky-list-paging pageSize="5"></sky-list-paging>
+</sky-list>
+
+<!--
 <table class="table table-striped">
     <thead style="background: skyblue;">
         <tr>
@@ -27,4 +44,4 @@
             <td>{{movie.movieRating}}</td>
         </tr>
     </tbody>
-</table>
+</table>-->

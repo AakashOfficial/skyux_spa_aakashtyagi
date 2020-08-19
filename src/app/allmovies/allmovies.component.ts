@@ -49,6 +49,9 @@ export class AllmoviesComponent implements OnInit {
         this.getMovies();
         this.gridOptions = {
             columnDefs: this.columnDefs,
+            // paginationAutoPageSize: true,
+            paginationPageSize: 5,
+            pagination: true,
             onGridReady: gridReadyEvent => this.onGridReady(gridReadyEvent)
         };
         this.gridOptions = this.agGridService.getGridOptions({ gridOptions: this.gridOptions });
@@ -92,6 +95,44 @@ export class AllmoviesComponent implements OnInit {
             this.gridApi.refreshCells();
 
             alert('Saving data! ' + output);
+        }
+        });
+    }
+
+    public addMovie () {
+        let emptyModel: Movie[];
+        let movieModel = new Movie();
+        movieModel.movieActor = '';
+        movieModel.movieDirector = '';
+        movieModel.movieName = '';
+        movieModel.movieRating = 1;
+        movieModel.movieReleased = '';
+        movieModel.movieType = '';
+        emptyModel = [movieModel];
+        const context = new GridEditModalContext();
+        // context.gridData = this.gridData;
+        context.gridData = emptyModel;
+
+        const options = {
+        providers: [{ provide: GridEditModalContext, useValue: context }],
+        ariaDescribedBy: 'docs-edit-grid-modal-content',
+        size: 'large'
+        };
+
+        const modalInstance = this.modalService.open(GridEditModalComponent, options);
+
+        modalInstance.closed.subscribe((result: SkyModalCloseArgs) => {
+        if (result.reason === 'cancel' || result.reason === 'close') {
+            alert('Edits canceled!');
+        } else {
+            this.gridData = result.data;
+            // let output = this.editData(result.data);
+            this.gridApi.refreshCells();
+            alert(JSON.stringify(result.data));
+
+            alert(result.data[0].movieName + ' <br/>' + result.data[0].movieDirector + ' <br/>' +
+            ' <br/>' + result.data[0].movieActor + ' <br/>' + result.data[0].movieRating +
+            ' <br/>' + result.data[0].movieReleased + ' <br/>' + result.data[0].movieType);
         }
         });
     }

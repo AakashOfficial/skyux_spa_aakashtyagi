@@ -246,3 +246,42 @@ export class DataService {
         this.addMovie(movie);
     }
 }
+
+
+/* var gridOptions = {
+  defaultColDef: {
+    editable: true,
+    enableRowGroup: true,
+    enablePivot: true,
+    enableValue: true,
+    sortable: true,
+    resizable: true,
+    filter: true,
+    flex: 1,
+    minWidth: 100,
+  },
+  suppressRowClickSelection: true,
+  groupSelectsChildren: true,
+  debug: true,
+  rowSelection: 'multiple',
+  rowGroupPanelShow: 'always',
+  pivotPanelShow: 'always',
+  enableRangeSelection: true,
+  columnDefs: columnDefs,
+  pagination: true
+};
+
+// setup the grid after the page has finished loading
+document.addEventListener('DOMContentLoaded', function() {
+  var gridDiv = document.querySelector('#myGrid');
+  new agGrid.Grid(gridDiv, gridOptions);
+
+  agGrid
+    .simpleHttpRequest({
+      url:
+        'https://raw.githubusercontent.com/ag-grid/ag-grid/master/grid-packages/ag-grid-docs/src/olympicWinnersSmall.json',
+    })
+    .then(function(data) {
+      gridOptions.api.setRowData(data);
+    });
+}); */
