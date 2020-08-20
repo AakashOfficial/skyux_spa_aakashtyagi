@@ -1,0 +1,26 @@
+{
+    "example_string": {
+        "message": "Dit is een voorbeeldreeks",
+        "_description": "De eigenschap _description geeft de vertaler context over hoe de tekenreeks in het product wordt gebruikt"
+    },
+    "app_nav_about": {
+        "message": "Over",
+        "_description": "De tekst voor het navigatie-item Over op het hoogste niveau"
+    },
+    "app_nav_home": {
+        "message": "Huis",
+        "_description": "De tekst voor het navigatie-item op het hoogste niveau"
+    },
+    "home_title": {
+        "message": "SKY UX-sjabloon",
+        "_description": "Titel voor de thuiscomponent"
+    },
+    "top_message": {
+        "message": "Dit zijn de top 10 films volgens beoordelingen",
+        "_description": "Top 10 beoordelingsbericht"
+    },
+    "btn_Message": {
+        "message": "Voor bericht in het Nederlands",
+        "_description": "Voor bericht in het Nederlands"
+    }
+}

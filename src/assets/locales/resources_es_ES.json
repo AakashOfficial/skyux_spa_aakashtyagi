@@ -1,0 +1,26 @@
+{
+    "example_string": {
+        "message": "Esta es una cadena de ejemplo",
+        "_description": "La propiedad _description da contexto al traductor sobre cómo se usa la cadena en el producto"
+    },
+    "app_nav_about": {
+        "message": "Acerca de",
+        "_description": "El texto del elemento de navegación de nivel superior Acerca de"
+    },
+    "app_nav_home": {
+        "message": "Hogar",
+        "_description": "El texto del elemento de navegación de nivel superior de Inicio"
+    },
+    "home_title": {
+        "message": "Plantilla SKY UX",
+        "_description": "Título del componente de la casa"
+    },
+    "top_message": {
+        "message": "Estas son las 10 mejores películas según las clasificaciones",
+        "_description": "Mensaje de clasificación de los 10 principales"
+    },
+    "btn_Message": {
+        "message": "Para mensaje en español",
+        "_description": "Para mensaje en español"
+    }
+}

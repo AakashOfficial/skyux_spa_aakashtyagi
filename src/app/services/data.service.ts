@@ -19,8 +19,7 @@ export class DataService {
                     let data = localStorage.getItem('movieData') ;
 
                     // alert(data);
-                    // if ( data !== undefined && data != null) {
-                    if ( data !== undefined ) {
+                    if ( data !== undefined && data !== null) {
                         objMovieData = JSON.parse(data);
                         dataLength = objMovieData.length;
                         movieID = objMovieData[dataLength - 1].movieId + 1;
@@ -45,7 +44,7 @@ export class DataService {
 
     public getMovies () {
         let data = localStorage.getItem('movieData');
-        if ( data !== undefined ) {
+        if ( data !== undefined && data !== null ) {
             let objData = JSON.parse(data);
             return objData;
         }
@@ -71,7 +70,7 @@ export class DataService {
 
     public getValidMovie ( movieName: String ) {
         let data = localStorage.getItem('movieData') ;
-        if ( data !== undefined ) {
+        if ( data !== undefined && data !== null) {
             let objData = JSON.parse(data);
 
             for (let i = 0; i < objData.length; i++) {
@@ -86,7 +85,7 @@ export class DataService {
     public removeData ( movieName: String ) {
         let data = localStorage.getItem('movieData') ;
         let index = -1 ;
-        if ( data !== undefined ) {
+        if ( data !== undefined && data !== null ) {
             let objData = JSON.parse(data);
             for (let i = 0; i < objData.length; i++) {
                 if ( objData[i].movieName === movieName ) {

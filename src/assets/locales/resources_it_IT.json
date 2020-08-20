@@ -1,0 +1,26 @@
+{
+    "example_string": {
+        "message": "Questa è una stringa di esempio",
+        "_description": "La proprietà _description fornisce contesto al traduttore su come la stringa viene utilizzata nel prodotto"
+    },
+    "app_nav_about": {
+        "message": "Di",
+        "_description": "Il testo per l'elemento di navigazione di primo livello Informazioni"
+    },
+    "app_nav_home": {
+        "message": "Casa",
+        "_description": "Il testo per l'elemento di navigazione di primo livello Home"
+    },
+    "home_title": {
+        "message": "Modello SKY UX",
+        "_description": "Titolo per il componente casa"
+    },
+    "top_message": {
+        "message": "Questi sono i primi 10 film in base alle valutazioni",
+        "_description": "Top 10 messaggio di valutazione"
+    },
+    "btn_Message": {
+        "message": "Per messaggio in italiano",
+        "_description": "Per messaggio in italiano"
+    }
+}

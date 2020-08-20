@@ -1,8 +1,25 @@
 <app-nav></app-nav>
 
+<br/>
 <button aria-haspopup="dialog" class="sky-btn sky-btn-default sky-margin-inline-default" type="button" (click)="saveDemoData()"> Save Demo Data </button>
 
 <button aria-haspopup="dialog" class="sky-btn sky-btn-default sky-margin-inline-default" type="button" (click)="removeAllData()"> Remove All Data </button>
+
+<br/>
+<h2>Click on the Button to change the Message</h2>
+<button class="sky-btn sky-btn-primary" (click)="changeLanguage('hi_In')"> {{ hindiBtn }} </button> &nbsp;&nbsp;
+<button class="sky-btn sky-btn-primary" (click)="changeLanguage('en_US')"> {{ englishBtn }} </button> &nbsp;&nbsp;
+<button class="sky-btn sky-btn-primary" (click)="changeLanguage('eo')"> {{ esperantoBtn }} </button> &nbsp;&nbsp;
+<button class="sky-btn sky-btn-primary" (click)="changeLanguage('en_ES')"> {{ spanichBtn }} </button>
+<br/><br/>
+<button class="sky-btn sky-btn-primary" (click)="changeLanguage('fr_FR')"> {{ frenchBtn }} </button> &nbsp;&nbsp;
+<button class="sky-btn sky-btn-primary" (click)="changeLanguage('it_IT')"> {{ italianBtn }} </button> &nbsp;&nbsp;
+<button class="sky-btn sky-btn-primary" (click)="changeLanguage('nl_NL')"> {{ dutchBtn }} </button>
+
+<br/>
+<h2>
+    &nbsp;&nbsp; {{ libDefaultGreeting }}
+</h2>
 
 <sky-list [data]="items">
     <sky-list-toolbar></sky-list-toolbar>
