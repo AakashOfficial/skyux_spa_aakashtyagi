@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-// import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy } from '@angular/core';
 
 import { SkyLibResourcesService } from '@skyux/i18n';
 
@@ -7,11 +7,12 @@ import { BehaviorSubject } from 'rxjs';
 
 import { DataService} from '../services/data.service';
 import { Movie } from '../model/movie';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'top-ten-movie',
   templateUrl: './toptenmovie.component.html',
-  // changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TopTenMovieComponent implements OnInit {
     public libDefaultGreeting: string;
@@ -28,7 +29,8 @@ export class TopTenMovieComponent implements OnInit {
 
     constructor (
         private userservice: DataService,
-        private libResources: SkyLibResourcesService
+        private libResources: SkyLibResourcesService,
+        private route: Router
     ) { }
 
      public ngOnInit (): void {
@@ -66,13 +68,15 @@ export class TopTenMovieComponent implements OnInit {
 
      public saveDemoData () {
          this.userservice.saveDemoData();
+         this.route.navigate(['/allmovies']);
      }
 
      public removeAllData () {
         this.userservice.removeAllData();
+        this.route.navigate(['/allmovies']);
      }
 
-     public changeLanguage(localeSelected: String){
+     public changeLanguage(localeSelected: String) {
          if (localeSelected === 'hi_IN') {
              this.libDefaultGreeting = this.libResources.getStringForLocale(
                 { locale: 'hi_IN' }, 'top_message'
@@ -108,7 +112,7 @@ export class TopTenMovieComponent implements OnInit {
          }
      }
 
-     public initializeButton(){
+     public initializeButton () {
         this.hindiBtn = this.libResources.getStringForLocale(
                 { locale: 'hi_IN' }, 'btn_Message'
              );

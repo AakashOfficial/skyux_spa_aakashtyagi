@@ -1,6 +1,4 @@
-import {
-  NgModule
-} from '@angular/core';
+import { NgModule } from '@angular/core';
 
 import { SkyI18nModule, SKY_LIB_RESOURCES_PROVIDERS } from '@skyux/i18n';
 
