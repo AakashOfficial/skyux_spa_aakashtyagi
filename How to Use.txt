@@ -14,4 +14,6 @@
      and rating is changed, then the change will also be reflected in the top ten movies.
  (b) This page has 2 Buttons name as 'Save Demo Data' and 'Remove All Data'. By clicking 
      on the Save demo data then, the Demo Data is saved to the local storage.
- (c) 
+ (c) There are 7 Buttons with the name as 'For Message in `Language Name`'. Click on that button
+     will show the message 'These are the top 10 Movies according to Ratings' in the Respective
+     Language. It is completed using the Internationalisation/Localization.
