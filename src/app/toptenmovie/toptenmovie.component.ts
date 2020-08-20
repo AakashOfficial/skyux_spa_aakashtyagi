@@ -11,6 +11,7 @@ import { Movie } from '../model/movie';
 export class TopTenMovieComponent implements OnInit {
     public items: BehaviorSubject<any>;
     public movieData: Movie[] ;
+
     constructor (
         private userservice: DataService
     ) { }
@@ -24,15 +25,25 @@ export class TopTenMovieComponent implements OnInit {
         this.getTopTenMovie();
      }
 
-     public getSKYUXList(){
+     public getSKYUXList () {
          this.items = new BehaviorSubject(this.movieData);
      }
 
      public getTopTenMovie () {
          let movieData = this.userservice.getTopTenMovie();
-         if ( movieData !== undefined && movieData != null ) {
+        //  if ( movieData !== undefined && movieData != null ) {
+        if ( movieData !== undefined ) {
              this.movieData = movieData;
             // alert(JSON.stringify(movieData));
+         } else {
+            let movieModel = new Movie();
+            // movieModel.movieActor = '';
+            // movieModel.movieDirector = '';
+            // movieModel.movieName = '';
+            // movieModel.movieRating = 1;
+            // movieModel.movieReleased = '';
+            // movieModel.movieType = '';
+            this.movieData = [movieModel];
          }
      }
 

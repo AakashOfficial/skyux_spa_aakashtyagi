@@ -35,8 +35,6 @@ export class AllmoviesComponent implements OnInit {
 
     public movieData: Movie[] ;
 
-    mySubscription: any;
-
     public gridApi: GridApi;
     public gridOptions: GridOptions;
     public searchText: string;
@@ -66,9 +64,19 @@ export class AllmoviesComponent implements OnInit {
 
      public getMovies () {
          let movieData = this.userservice.getMovies();
-         if ( movieData != null) {
+         if ( movieData !== undefined) {
              this.gridData = movieData;
          }
+         /* else {
+             let movieModel = new Movie();
+            // movieModel.movieActor = '';
+            // movieModel.movieDirector = '';
+            // movieModel.movieName = '';
+            // movieModel.movieRating = 1;
+            // movieModel.movieReleased = '';
+            // movieModel.movieType = '';
+            this.gridData = [movieModel];
+         } */
      }
 
      public onGridReady(gridReadyEvent: GridReadyEvent): void {
@@ -137,7 +145,7 @@ export class AllmoviesComponent implements OnInit {
             movieModel.movieReleased = result.data[0].movieReleased;
             movieModel.movieType = result.data[0].movieType;
             let out = this.userservice.addMovie(movieModel);
-            if(out){
+            if (out) {
                 alert('Movie Added');
             }
             this.getMovies();

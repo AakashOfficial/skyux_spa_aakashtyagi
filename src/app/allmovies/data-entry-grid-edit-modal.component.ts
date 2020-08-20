@@ -31,7 +31,7 @@ export class GridEditModalComponent implements OnInit {
   public ngOnInit(): void {
     this.gridData = this.context.gridData;
     // alert(this.context.gridData.length);
-    if(this.context.gridData.length == 1){
+    if ( this.context.gridData.length === 1 ) {
       this.newEdit = true;
     }
 

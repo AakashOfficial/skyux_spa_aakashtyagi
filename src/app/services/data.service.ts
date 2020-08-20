@@ -19,10 +19,11 @@ export class DataService {
                     let data = localStorage.getItem('movieData') ;
 
                     // alert(data);
-                    if ( data !== undefined && data != null) {
+                    // if ( data !== undefined && data != null) {
+                    if ( data !== undefined ) {
                         objMovieData = JSON.parse(data);
-                        dataLength = objMovieData.length ;
-                        movieID = objMovieData[dataLength-1].movieId + 1;
+                        dataLength = objMovieData.length;
+                        movieID = objMovieData[dataLength - 1].movieId + 1;
                     }
                     movie.movieId = movieID;
                     objMovieData[dataLength] = movie ;
@@ -44,16 +45,16 @@ export class DataService {
 
     public getMovies () {
         let data = localStorage.getItem('movieData');
-        if ( data !== undefined && data != null ) {
+        if ( data !== undefined ) {
             let objData = JSON.parse(data);
             return objData;
         }
-        return null;
+        // return null;
     }
 
     public getTopTenMovie () {
         let data = localStorage.getItem('movieData') ;
-        if ( data !== undefined && data != null ) {
+        if ( data !== undefined && data !== null ) {
             let objData = JSON.parse(data);
 
             objData.sort((x: Movie, y: Movie) => { return y.movieRating - x.movieRating; } );
@@ -62,14 +63,15 @@ export class DataService {
             // });
 
             return objData.slice(0, 10);
-        } else {
-            return null;
         }
+        //  else {
+        //     return null;
+        // }
     }
 
     public getValidMovie ( movieName: String ) {
         let data = localStorage.getItem('movieData') ;
-        if ( data !== undefined && data != null ) {
+        if ( data !== undefined ) {
             let objData = JSON.parse(data);
 
             for (let i = 0; i < objData.length; i++) {
@@ -84,7 +86,7 @@ export class DataService {
     public removeData ( movieName: String ) {
         let data = localStorage.getItem('movieData') ;
         let index = -1 ;
-        if ( data !== undefined && data != null ) {
+        if ( data !== undefined ) {
             let objData = JSON.parse(data);
             for (let i = 0; i < objData.length; i++) {
                 if ( objData[i].movieName === movieName ) {
@@ -249,42 +251,3 @@ export class DataService {
         this.addMovie(movie);
     }
 }
-
-
-/* var gridOptions = {
-  defaultColDef: {
-    editable: true,
-    enableRowGroup: true,
-    enablePivot: true,
-    enableValue: true,
-    sortable: true,
-    resizable: true,
-    filter: true,
-    flex: 1,
-    minWidth: 100,
-  },
-  suppressRowClickSelection: true,
-  groupSelectsChildren: true,
-  debug: true,
-  rowSelection: 'multiple',
-  rowGroupPanelShow: 'always',
-  pivotPanelShow: 'always',
-  enableRangeSelection: true,
-  columnDefs: columnDefs,
-  pagination: true
-};
-
-// setup the grid after the page has finished loading
-document.addEventListener('DOMContentLoaded', function() {
-  var gridDiv = document.querySelector('#myGrid');
-  new agGrid.Grid(gridDiv, gridOptions);
-
-  agGrid
-    .simpleHttpRequest({
-      url:
-        'https://raw.githubusercontent.com/ag-grid/ag-grid/master/grid-packages/ag-grid-docs/src/olympicWinnersSmall.json',
-    })
-    .then(function(data) {
-      gridOptions.api.setRowData(data);
-    });
-}); */

@@ -48,10 +48,10 @@ export class GridContextMenuComponent implements ICellRendererAngularComp {
     });
 
     dialog.closed.subscribe((result: any) => {
-      if(result.action === 'yes'){
+      if ( result.action === 'yes' ) {
         let dataservice = new DataService();
-        let result = dataservice.removeData(this.movieName);
-        if (result) {
+        let resultDelete = dataservice.removeData(this.movieName);
+        if (resultDelete) {
           // window.location.reload();
           this.route.navigate(['/toptenmovie']);
           alert('Deleted');
