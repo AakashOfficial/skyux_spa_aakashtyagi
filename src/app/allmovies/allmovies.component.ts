@@ -50,7 +50,7 @@ export class AllmoviesComponent implements OnInit {
         this.gridOptions = {
             columnDefs: this.columnDefs,
             // paginationAutoPageSize: true,
-            paginationPageSize: 5,
+            paginationPageSize: 10,
             pagination: true,
             onGridReady: gridReadyEvent => this.onGridReady(gridReadyEvent)
         };
