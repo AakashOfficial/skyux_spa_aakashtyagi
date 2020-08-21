@@ -23,8 +23,11 @@ export class AllmoviesComponent implements OnInit {
     public gridData: Movie [] ;
 
     public columnDefs = [
-        { field: 'selected', type: SkyCellType.RowSelector },
-        { colId: 'context', headerName: '', maxWidth: 50, sortable: false, cellRendererFramework: GridContextMenuComponent },
+        { colId: 'context', headerName: 'Actions', maxWidth: 50, sortable: false, cellRendererFramework: GridContextMenuComponent,
+        cellRendererParams: {
+            editMovie: this.editMovie.bind(this),
+            } 
+        },
         { headerName: 'Movie Name', field: 'movieName', sortable: true, filter: true },
         { headerName: 'Movie Director', field: 'movieDirector', sortable: true, filter: true, type: SkyCellType.Text, maxWidth: 100 },
         { headerName: 'Movie Actor', field: 'movieActor', sortable: true, filter: true, type: SkyCellType.Text, maxWidth: 100 },
@@ -67,16 +70,6 @@ export class AllmoviesComponent implements OnInit {
          if ( movieData !== undefined) {
              this.gridData = movieData;
          }
-         /* else {
-             let movieModel = new Movie();
-            // movieModel.movieActor = '';
-            // movieModel.movieDirector = '';
-            // movieModel.movieName = '';
-            // movieModel.movieRating = 1;
-            // movieModel.movieReleased = '';
-            // movieModel.movieType = '';
-            this.gridData = [movieModel];
-         } */
      }
 
      public onGridReady(gridReadyEvent: GridReadyEvent): void {
@@ -155,6 +148,38 @@ export class AllmoviesComponent implements OnInit {
             // alert(result.data[0].movieName + ' <br/>' + result.data[0].movieDirector + ' <br/>' +
             // ' <br/>' + result.data[0].movieActor + ' <br/>' + result.data[0].movieRating +
             // ' <br/>' + result.data[0].movieReleased + ' <br/>' + result.data[0].movieType);
+            this.gridApi.refreshCells();
+        }
+        });
+    }
+
+    public editMovie(movieName: String){
+        const context = new GridEditModalContext();
+        context.gridData = this.userservice.getMoviebyname(movieName);
+
+        const options = {
+        providers: [{ provide: GridEditModalContext, useValue: context }],
+        ariaDescribedBy: 'docs-edit-grid-modal-content',
+        size: 'large'
+        };
+
+        const modalInstance = this.modalService.open(GridEditModalComponent, options);
+
+        modalInstance.closed.subscribe((result: SkyModalCloseArgs) => {
+        if (result.reason === 'cancel' || result.reason === 'close') {
+            alert('Edits canceled!');
+        } else {
+            let movieModel = new Movie();
+            movieModel.movieActor = result.data[0].movieActor;
+            movieModel.movieDirector = result.data[0].movieDirector;
+            movieModel.movieName = result.data[0].movieName;
+            movieModel.movieRating = result.data[0].movieRating;
+            movieModel.movieReleased = result.data[0].movieReleased;
+            movieModel.movieType = result.data[0].movieType;
+            let output = this.userservice.editSingleMovie(movieModel);
+ 
+            alert('Saving data! ' + output);
+            this.getMovies();
             this.gridApi.refreshCells();
         }
         });

@@ -115,6 +115,46 @@ export class DataService {
         return true;
     }
 
+    public getMoviebyname(movieName: String){
+        let data = localStorage.getItem('movieData') ;
+        let objData = JSON.parse(data);
+
+        let movieData = new Movie();
+        for (let i = 0; i < objData.length; i++) {
+            if (objData[i].movieName === movieName) {
+                movieData.movieActor = objData[i].movieActor;
+                movieData.movieDirector = objData[i].movieDirector;
+                movieData.movieId = objData[i].movieId;
+                movieData.movieName = objData[i].movieName;
+                movieData.movieRating = objData[i].movieRating;
+                movieData.movieReleased = objData[i].movieReleased;
+                movieData.movieType = objData[i].movieType;
+                return [movieData];
+            }
+        }
+    }
+
+    public editSingleMovie(movieData: Movie){
+        let savedMovieData = localStorage.getItem('movieData');
+        let savedMovieObject = JSON.parse(savedMovieData);
+        
+        for (let i = 0; i < savedMovieObject.length; i++) {
+            if (savedMovieObject[i].movieName === movieData.movieName) {
+                savedMovieObject[i].movieActor = movieData.movieActor;
+                savedMovieObject[i].movieDirector = movieData.movieDirector;
+                savedMovieObject[i].movieId = savedMovieObject[i].movieId;
+                savedMovieObject[i].movieName = movieData.movieName;
+                savedMovieObject[i].movieRating = movieData.movieRating;
+                savedMovieObject[i].movieReleased = movieData.movieReleased;
+                savedMovieObject[i].movieType = movieData.movieType;
+            }
+        }
+
+        let stringData = JSON.stringify(savedMovieObject) ;
+        localStorage.setItem('movieData', stringData);
+        return true;
+    }
+
     public saveDemoData () {
         let movie = new Movie();
 

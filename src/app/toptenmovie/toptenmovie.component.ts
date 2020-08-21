@@ -93,9 +93,9 @@ export class TopTenMovieComponent implements OnInit {
             this.libDefaultGreeting = this.libResources.getStringForLocale(
                 { locale: 'eo' }, 'top_message'
              );
-         } else if (localeSelected === 'en_ES') {
+         } else if (localeSelected === 'es_ES') {
             this.libDefaultGreeting = this.libResources.getStringForLocale(
-                { locale: 'en_ES' }, 'top_message'
+                { locale: 'es_ES' }, 'top_message'
              );
          } else if (localeSelected === 'fr_FR') {
             this.libDefaultGreeting = this.libResources.getStringForLocale(
@@ -126,7 +126,7 @@ export class TopTenMovieComponent implements OnInit {
                 { locale: 'fr_FR' }, 'btn_Message'
              );
         this.spanichBtn = this.libResources.getStringForLocale(
-                { locale: 'en_ES' }, 'btn_Message'
+                { locale: 'es_ES' }, 'btn_Message'
              );
         this.englishBtn = this.libResources.getStringForLocale(
                 { locale: 'en_US' }, 'btn_Message'

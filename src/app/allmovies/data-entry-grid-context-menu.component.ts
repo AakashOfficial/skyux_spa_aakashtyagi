@@ -14,7 +14,7 @@ import { DataService } from '../services/data.service';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class GridContextMenuComponent implements ICellRendererAngularComp {
-
+  para: any;
   private movieName: string;
   private params: ICellRendererParams;
 
@@ -28,6 +28,7 @@ export class GridContextMenuComponent implements ICellRendererAngularComp {
   ) { }
 
   public agInit(params: ICellRendererParams): void {
+    this.para = params;
     this.params = params;
     this.movieName = this.params.data && this.params.data.movieName;
   }
@@ -52,12 +53,15 @@ export class GridContextMenuComponent implements ICellRendererAngularComp {
         let dataservice = new DataService();
         let resultDelete = dataservice.removeData(this.movieName);
         if (resultDelete) {
-          // window.location.reload();
           this.route.navigate(['/toptenmovie']);
           alert('Deleted');
         }
       }
     });
+  }
+
+  public onClick(){
+      this.para.editMovie(this.movieName);
   }
 
 }

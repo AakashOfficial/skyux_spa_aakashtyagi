@@ -58,6 +58,7 @@
     "@skyux/popovers": "^4.2.0",
     "@skyux/router": "4.0.0",
     "@skyux/theme": "4.4.0",
+    "ag-grid": "^18.1.2",
     "ag-grid-angular": "^23.2.1",
     "ag-grid-community": "^23.2.1",
     "rxjs": "^6.5.5",
