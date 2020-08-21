@@ -14,5 +14,13 @@
     "home_title": {
         "message": "SKY UX Template",
         "_description": "Title for the home component"
+    },
+    "top_message": {
+        "message": "These are the top 10 Movies according to Ratings",
+        "_description": "Top 10 Rating Message"
+    },
+    "btn_Message": {
+        "message": "For Message in English",
+        "_description": "For Message In English"
     }
 }

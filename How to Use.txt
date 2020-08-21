@@ -1,0 +1,21 @@
+1. Run the App by using 'skyux serve' command in node.js window.
+
+2. The Navigation Bar Contains the Two Headings named as 'All Movie' and 'Top Ten Movie'.
+
+3. Click on 'All Movie', then 
+ (a) The All movies will show.
+ (b) The 'Add Movie' button is used to Add the Movie.
+ (c) The 'Edit' button is used to Edit the Movies.
+ (d) The Add and Edit Uses the Same form for Edit and Add Movies.
+ (e) For Adding a Movie, All the Fields are Required for Saving the Movie.
+ (F) This Page also contains the Pagination, Data Filteration, Searching and Sorting of Movies.
+
+4. Click on the 'Top Ten Movie', then
+ (a) The top ten Movies will be Displayed according to the Rating. If the Movie is edited 
+     and rating is changed, then the change will also be reflected in the top ten movies. This
+     also have the Pagination.
+ (b) This page has 2 Buttons name as 'Save Demo Data' and 'Remove All Data'. By clicking 
+     on the Save demo data then, the Demo Data is saved to the local storage.
+ (c) There are 7 Buttons with the name as 'For Message in `Language Name`'. Click on that button
+     will show the message 'These are the top 10 Movies according to Ratings' in the Respective
+     Language. It is completed using the Internationalisation/Localization.

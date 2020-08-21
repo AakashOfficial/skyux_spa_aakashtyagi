@@ -1,0 +1,26 @@
+{
+    "example_string": {
+        "message": "Ceci est un exemple de chaîne",
+        "_description": "La propriété _description donne un contexte au traducteur quant à la façon dont la chaîne est utilisée dans le produit"
+    },
+    "app_nav_about": {
+        "message": "À propos",
+        "_description": "Le texte de l'élément de navigation de niveau supérieur À propos"
+    },
+    "app_nav_home": {
+        "message": "Accueil",
+        "_description": "Le texte de l'élément de navigation de niveau supérieur Accueil"
+    },
+    "home_title": {
+        "message": "Modèle SKY UX",
+        "_description": "Titre du composant domestique"
+    },
+    "top_message": {
+        "message": "Voici les 10 meilleurs films selon les classements",
+        "_description": "Top 10 des messages de notation"
+    },
+    "btn_Message": {
+        "message": "Pour message en français",
+        "_description": "Pour message en français"
+    }
+}

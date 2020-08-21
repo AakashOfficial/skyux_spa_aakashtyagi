@@ -1,0 +1,26 @@
+{
+    "example_string": {
+        "message": "Jen ekzempla ĉeno",
+        "_description": "La _description-propreco donas kuntekston al la tradukisto pri kiel la ĉeno estas uzata en la produkto"
+    },
+    "app_nav_about": {
+        "message": "Pri",
+        "_description": "La teksto por la temo pri navigado"
+    },
+    "app_nav_home": {
+        "message": "Hejmo",
+        "_description": "La teksto por la Hejma supro-nivela navigada ero"
+    },
+    "home_title": {
+        "message": "SKY UX Ŝablono",
+        "_description": "Titolo por la hejma komponento"
+    },
+    "top_message": {
+        "message": "Ĉi tiuj estas la supraj 10 Filmoj laŭ Taksoj",
+        "_description": "Plej 10 Taksa Mesaĝo"
+    },
+    "btn_Message": {
+        "message": "Por Mesaĝo en Esperanto",
+        "_description": "Por Mesaĝo en Esperanto"
+    }
+}
